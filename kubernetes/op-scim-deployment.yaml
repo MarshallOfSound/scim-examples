@@ -26,8 +26,6 @@ spec:
             - name: scimsession
               mountPath: "/secret"
               readOnly: false
-            - name: workspace-credentials
-              mount
           resources:
             requests:
               cpu: 125m
