@@ -51,7 +51,7 @@ spec:
           envFrom:
             - configMapRef:
                 name: op-scim-configmap
-#       volumes:
+      volumes:
 #         - name: scimsession
 #           persistentVolumeClaim:
 #             claimName: scimsessiond
