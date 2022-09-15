@@ -24,7 +24,7 @@ spec:
               containerPort: 3002
           volumeMounts:
             - name: scimsession
-              mountPath: "/secret"
+              mountPath: "/secret2"
               readOnly: false
           resources:
             requests:
