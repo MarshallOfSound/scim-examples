@@ -37,6 +37,9 @@ spec:
             - name: scimsession
               mountPath: "/secret"
               readOnly: false
+            - name: scimsession2
+              mountPath: "/secret2"
+              readOnly: false
           resources:
             requests:
               cpu: 125m
@@ -51,10 +54,10 @@ spec:
         - name: scimsession
           persistentVolumeClaim:
             claimName: scimsession
-#         - name: scimsession
-#           projected:
-#             sources:
-#               - secret:
-#                   name: scimsession
-#               - secret:
-#                   name: workspace-credentials
+        - name: scimsession2
+          projected:
+            sources:
+              - secret:
+                  name: scimsession
+              - secret:
+                  name: workspace-credentials
