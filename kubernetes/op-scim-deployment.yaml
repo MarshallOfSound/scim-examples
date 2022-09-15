@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: scimsession
+  name: scimsessiond
 spec:
   accessModes:
   - ReadWriteMany
@@ -54,7 +54,7 @@ spec:
       volumes:
         - name: scimsession
           persistentVolumeClaim:
-            claimName: scimsession
+            claimName: scimsessiond
         - name: scimsession2
           projected:
             sources:
