@@ -35,11 +35,11 @@ spec:
             - name: http
               containerPort: 3002
           volumeMounts:
-            - name: scimsession
-              mountPath: "/secret"
-              readOnly: false
+#             - name: scimsession
+#               mountPath: "/secret"
+#               readOnly: false
             - name: scimsession2
-              mountPath: "/secret2"
+              mountPath: "/secret"
               readOnly: false
           resources:
             requests:
@@ -51,10 +51,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: op-scim-configmap
-      volumes:
-        - name: scimsession
-          persistentVolumeClaim:
-            claimName: scimsessiond
+#       volumes:
+#         - name: scimsession
+#           persistentVolumeClaim:
+#             claimName: scimsessiond
         - name: scimsession2
           projected:
             sources:
