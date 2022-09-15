@@ -1,3 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: scimsession
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -24,7 +35,7 @@ spec:
               containerPort: 3002
           volumeMounts:
             - name: scimsession
-              mountPath: "/secret2"
+              mountPath: "/secret"
               readOnly: false
           resources:
             requests:
@@ -38,9 +49,12 @@ spec:
                 name: op-scim-configmap
       volumes:
         - name: scimsession
-          projected:
-            sources:
-              - secret:
-                  name: scimsession
-              - secret:
-                  name: workspace-credentials
+          persistentVolumeClaim:
+            claimName: scimsession
+#         - name: scimsession
+#           projected:
+#             sources:
+#               - secret:
+#                   name: scimsession
+#               - secret:
+#                   name: workspace-credentials
