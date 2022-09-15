@@ -38,8 +38,9 @@ spec:
                 name: op-scim-configmap
       volumes:
         - name: scimsession
-          sources:
-            - secret:
-                name: scimsession
-            - secret:
-                name: workspace-credentials
+          projected:
+            sources:
+              - secret:
+                  name: scimsession
+              - secret:
+                  name: workspace-credentials
